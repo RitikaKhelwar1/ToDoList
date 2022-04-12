@@ -14,12 +14,29 @@ export const logout=()=>{
         type: types.USER_LOGOUT
     }
 }
-export const createToDoItems = () =>{
-    return types.CREATE_TODOITEMS
+export const createToDoItems = (item) =>{
+    console.log(item)
+    return {
+        type: types.CREATE_TODOITEMS,
+        payload : {
+            id: Math.floor(Math.random()*1000),
+            item:item
+        }
+    }
 }
 
-export const deleteToDoItems = () =>{
-    return types.DELETE_TODOITEMS
+export const deleteToDoItems = (id) =>{
+    return {
+        type: types.DELETE_TODOITEMS,
+        id:id
+    }
+}
+export const editToDoItems = (index) =>{
+    console.log(item)
+    return {
+        type: types.EDIT_TODOITEMS,
+        payload : index
+    }
 }
 
 

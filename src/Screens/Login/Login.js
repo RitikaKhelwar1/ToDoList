@@ -27,7 +27,7 @@ function Login() {
   const loging=()=>{
     if(name.length===0){alert("Please Enter User Name")}
     else if(phone.length===0){alert("Please Enter Phone Name")}
-    if(phone.length!=0){dispatch(login())}
+    if(phone.length!=0 && name.length){dispatch(login())}
   }
 
   return (

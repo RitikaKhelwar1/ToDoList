@@ -7,8 +7,12 @@ import { useDispatch } from 'react-redux'
 import types from '../../Redux/types'
 import MyButton from '../../Components/MyButton'
 import Styles from '../AddDetails/styles'
+import {createToDoItems} from '../../Redux/actions/index'
 
 function AddDetails({ navigation }) {
+  
+
+
   const [name, setname] = useState('')
   const [roll, setroll] = useState('')
   const [age, setage] = useState('')
@@ -40,16 +44,7 @@ function AddDetails({ navigation }) {
   
   const handleAddBtn = () => {
     
-    dispatch({
-      type: types.CREATE_TODOITEMS,
-      item: {
-        name: name,
-        address: address,
-        phone: phone,
-        age: age,
-        roll: roll
-      }
-    })
+    
     if(name.length===0){
       alert("Set User Name")
     }
@@ -63,7 +58,11 @@ function AddDetails({ navigation }) {
       alert("Set User Phone number")
     }
     else if(address.length===0){alert("Enter User Address")}
-    if(address.length!=0){navigation.navigate(navigationStrings.HOME)}
+    else if(address.length!=0){
+      dispatch(createToDoItems({name,phone,address,age,roll})),
+         
+      
+      navigation.navigate(navigationStrings.HOME)}
   }
 
 

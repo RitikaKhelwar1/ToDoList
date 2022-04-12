@@ -22,6 +22,8 @@ export default styles = StyleSheet.create({
         fontSize:20,
         marginTop:10,
         textAlign: "center",
+        shadowOpacity:1,
+        shadowColor:colors.redE
         
     },
     todoListText: {
@@ -40,6 +42,12 @@ export default styles = StyleSheet.create({
         borderRadius:10,
         // flex:0.8
       },
+      todoList:{
+        backgroundColor:colors.greyColor3,
+        borderTopRightRadius:10,
+        borderTopLeftRadius:10,
+        shadowOpacity:1
+      },
       MainCont:{
         borderBottomColor:colors.DarkBlue,
         borderBottomWidth:2,
@@ -51,8 +59,9 @@ export default styles = StyleSheet.create({
       },
       LogOutText:{
         fontSize:18,
-        color:colors.blue,
-        fontWeight:"bold"
+        color:colors.redFireBrick,
+        fontWeight:"bold",
+       
       }
       
 
