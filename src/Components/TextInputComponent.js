@@ -6,13 +6,14 @@ import colors from '../../src/Styles/colors'
 const TextInputComponent = ({
     placeholder = '',
     placeholderTextColor = '',
-    onchangeText={}
+    onchangeText={},
+    myValue,
 }) => {
     return (
         <View style={styles.viewcss}>
 
             <View style={styles.container}>
-                <TextInput placeholder={placeholder} onChangeText={onchangeText} placeholderTextColor={placeholderTextColor} style={styles.inputtext} />
+                <TextInput placeholder={placeholder} onChangeText={onchangeText} placeholderTextColor={placeholderTextColor} style={styles.inputtext} value={myValue}/>
             </View>
 
 
@@ -20,12 +21,13 @@ const TextInputComponent = ({
     )
 }
 
-
 const styles = StyleSheet.create({
     container:{
-        alignItems: 'flex-start' ,
+       
         marginVertical:10,
-        marginLeft:5
+        marginLeft:5,
+       flex:0.9
+
        
     },
 
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginHorizontal: 5,
         marginVertical: 10,
-        alignItems: "center",
         borderColor: colors.blackOpacity43,
         borderWidth: 2,
         borderRadius:5

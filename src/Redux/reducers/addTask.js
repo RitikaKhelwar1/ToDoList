@@ -12,7 +12,7 @@ const AddTask = (state = initialState, action) =>{
             ...state,
             todoItems : [
                 ...state.todoItems, {
-                    id:id,
+                    userId:item.userId,
                     name: item.name,
                     age : item.age,
                     address: item.address,
@@ -23,11 +23,30 @@ const AddTask = (state = initialState, action) =>{
             ]
         }
         case types.DELETE_TODOITEMS : 
-        const newList = state.todoItems.filter((items)=>items.id!==action.id)
+        const newList1= [...state.todoItems]
+        const index = state.todoItems.findIndex((items)=>items.userId===action.userId)
+
+        if(index >= 0){
+            newList1.splice(index,1)
+        }
         return{
             ...state,
-            todoItems:newList
+            todoItems:newList1
         }
+        case types.EDIT_TODOITEMS:
+        const data = action.payload
+        let editArr = [...state.todoItems]
+        let editUserIndex = state.todoItems.findIndex((index) => index.userId === data.id);
+        
+            editArr[editUserIndex] = data
+            return {
+                ...state,
+                todoItems: editArr
+            }
+
+        
+
+
     
         default : return state;
     }

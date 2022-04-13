@@ -6,7 +6,7 @@ import ImagePath from '../../Constants/ImagePath'
 import Styles from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import colors from '../../Styles/colors'
-import { logout , deleteToDoItems, editToDoItems} from '../../Redux/actions/index'
+import { logout, deleteToDoItems, editToDoItems } from '../../Redux/actions/index'
 import types from '../../Redux/types'
 
 
@@ -17,37 +17,24 @@ function Home({ navigation, }) {
 
   const todoListDetails = useSelector((state) => state.AddTask.todoItems)
 
-// -------edit details---------------->
 
-  const Edit=(index)=>{
-    // dispatch(deleteToDoItems(index))
-    navigation.navigate(navigationStrings.ADD_DETAILS)
-  }
 
   const handleSubmitBtn = () => {
     navigation.navigate(navigationStrings.ADD_DETAILS)
   }
 
   return (
-    <SafeAreaView>
+
+    <SafeAreaView style={{ flex: 1,}}>
       <View style={Styles.MainCont}>
         <View style={Styles.LogOut}>
           <TouchableOpacity onPress={() => dispatch(logout())}><Text style={Styles.LogOutText}>LogOut</Text></TouchableOpacity></View>
-
-        <View style={{ justifyContent: "center" }}>
-          {todoListDetails.length > 0 ?
-            <TouchableOpacity onPress={handleSubmitBtn}>
-              <Image source={ImagePath.PlusImg} style={Styles.PlusBtn} ></Image>
-            </TouchableOpacity> : null
-          }</View>
-
       </View>
-
       {/* ---------------------cards for the details---------------------- */}
       <ScrollView>
         {todoListDetails.map((items, index) => {
           return (
-            <View style={Styles.todoListContainer} key={items.id}>
+            <View style={Styles.todoListContainer} key={index}>
               <View style={Styles.todoList}>
                 <Text style={Styles.todoListText}>Name : {items.name}</Text>
                 <Text style={Styles.todoListText}>Address : {items.address}</Text>
@@ -57,8 +44,8 @@ function Home({ navigation, }) {
               </View>
               {/* ---------buttons to update and delete the user details------------ */}
               <View style={{ justifyContent: "space-between", flexDirection: "row" }}>
-                <TouchableOpacity><Text style={Styles.Text1}>Edit{index}</Text></TouchableOpacity>
-                <TouchableOpacity onPress={()=>dispatch(deleteToDoItems(items.id))} ><Text style={Styles.Text1}>Delete</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.ADD_DETAILS, { items, submitType: 'Edit' })}><Text style={Styles.Text1}>Edit</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => dispatch(deleteToDoItems(items.userId))} ><Text style={Styles.Text1}>Delete</Text></TouchableOpacity>
               </View>
               {/* -------------------------------------------------------------------- */}
             </View>
@@ -76,12 +63,14 @@ function Home({ navigation, }) {
 
       </ScrollView>
       {/* --------------------------------------------------------------------- */}
+      <View style={{ justifyContent: "center" }}>
+        {todoListDetails.length > 0 ?
+          <TouchableOpacity onPress={handleSubmitBtn}>
+            <Image source={ImagePath.PlusImg} style={Styles.PlusBtn} ></Image>
+          </TouchableOpacity> : null
+        }</View>
 
 
-
-
-
-      {/* -------------------------------------------------------------------- */}
     </SafeAreaView>
   )
 }

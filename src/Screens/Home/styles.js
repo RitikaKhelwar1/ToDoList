@@ -3,10 +3,11 @@ import colors from "../../Styles/colors";
 
 export default styles = StyleSheet.create({
     PlusBtn:{
-        height:40,
-        width:40,
+        height:70,
+        width:70,
         alignSelf:"flex-end",
         marginRight:15,
+        marginBottom:10
         
         
     },
@@ -22,35 +23,34 @@ export default styles = StyleSheet.create({
         fontSize:20,
         marginTop:10,
         textAlign: "center",
-        shadowOpacity:1,
-        shadowColor:colors.redE
+        
         
     },
     todoListText: {
-        color: colors.orangeB,
+        color: "black",
         fontSize: 15,
-        marginVertical: 8,
+        marginVertical: 2,
         fontWeight: '500',
         marginLeft:10
       },
       todoListContainer: {
         justifyContent: 'center',
         borderWidth:2,
-        borderColor:colors.DarkBlue,
+        borderColor:colors.orange,
         marginHorizontal:25,
         marginVertical:10,
         borderRadius:10,
+        shadowColor:colors.orange,
+        shadowOpacity:1
         // flex:0.8
       },
       todoList:{
         backgroundColor:colors.greyColor3,
         borderTopRightRadius:10,
         borderTopLeftRadius:10,
-        shadowOpacity:1
+      
       },
       MainCont:{
-        borderBottomColor:colors.DarkBlue,
-        borderBottomWidth:2,
         flexDirection:"row",
         justifyContent:"space-between"
       },
@@ -59,8 +59,9 @@ export default styles = StyleSheet.create({
       },
       LogOutText:{
         fontSize:18,
-        color:colors.redFireBrick,
+        color:colors.orange,
         fontWeight:"bold",
+        marginLeft:10
        
       }
       

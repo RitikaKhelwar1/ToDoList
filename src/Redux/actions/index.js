@@ -15,27 +15,25 @@ export const logout=()=>{
     }
 }
 export const createToDoItems = (item) =>{
-    console.log(item)
     return {
         type: types.CREATE_TODOITEMS,
         payload : {
-            id: Math.floor(Math.random()*1000),
             item:item
         }
     }
 }
 
-export const deleteToDoItems = (id) =>{
+export const deleteToDoItems = (userId) =>{
     return {
         type: types.DELETE_TODOITEMS,
-        id:id
+        userId:userId
     }
 }
-export const editToDoItems = (index) =>{
-    console.log(item)
+export const editToDoItems = (item) =>{
+    console.log("editItems",item)
     return {
         type: types.EDIT_TODOITEMS,
-        payload : index
+        payload :   item
     }
 }
 
