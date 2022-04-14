@@ -13,11 +13,14 @@ import types from '../../Redux/types'
 function Home({ navigation, }) {
   const add = "To add details Click on the + button"
 
+
+
+
   const dispatch = useDispatch()
 
   const todoListDetails = useSelector((state) => state.AddTask.todoItems)
 
-
+  console.log("todoItemstodoItems",todoListDetails)
 
   const handleSubmitBtn = () => {
     navigation.navigate(navigationStrings.ADD_DETAILS)

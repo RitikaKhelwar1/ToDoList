@@ -8,6 +8,11 @@ import types from '../../Redux/types'
 import MyButton from '../../Components/MyButton'
 import Styles from '../AddDetails/styles'
 import {createToDoItems,editToDoItems} from '../../Redux/actions/index'
+import { storeData } from '../../utils/utils'
+
+
+
+
 
 function AddDetails({ navigation , route}) {
   // console.log("routes",route)
@@ -16,11 +21,11 @@ function AddDetails({ navigation , route}) {
   const submitType = route?.params?.submitType
 
 
-  const [name, setname] = useState('')
-  const [roll, setroll] = useState('')
-  const [age, setage] = useState('')
-  const [address, setaddress] = useState('')
-  const [phone, setphone] = useState('')
+  const [name, setname] = useState(null)
+  const [roll, setroll] = useState(null)
+  const [age, setage] = useState(null)
+  const [address, setaddress] = useState(null)
+  const [phone, setphone] = useState(null)
 
   const dispatch = useDispatch();
 
@@ -35,6 +40,11 @@ function AddDetails({ navigation , route}) {
       setphone(items?.phone)
     }
   }, [items])
+
+  
+  
+
+
   
 
 
@@ -88,7 +98,7 @@ function AddDetails({ navigation , route}) {
   
   const handleAddBtn = () => {
     
-    
+    storeData([{userId,name,phone,address,age,roll}])
     if(name.length===0){
       alert("Set User Name")
     }
@@ -103,10 +113,12 @@ function AddDetails({ navigation , route}) {
     }
     else if(address.length===0){alert("Enter User Address")}
     else if(address.length!=0){
-      dispatch(createToDoItems({userId,name,phone,address,age,roll})),
+      dispatch(createToDoItems([{userId,name,phone,address,age,roll}])),
          
       
       navigation.navigate(navigationStrings.HOME)}
+
+     
   }
 
 

@@ -14,12 +14,11 @@ export const logout=()=>{
         type: types.USER_LOGOUT
     }
 }
-export const createToDoItems = (item) =>{
+export const createToDoItems = (res) =>{
     return {
         type: types.CREATE_TODOITEMS,
-        payload : {
-            item:item
-        }
+        payload : res
+        
     }
 }
 

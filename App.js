@@ -1,13 +1,30 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import { View, Text, TextInput, SafeAreaView } from 'react-native'
 import { Provider } from 'react-redux'
 import Routes from './src/Navigation/Routes'
 import store from './src/Redux/store'
+import types from './src/Redux/types'
+import { getData } from './src/utils/utils'
 
 
+const {dispatch} = store
 
 
 function App() {
+
+
+useEffect(()=>{
+    getData().then((res)=>{
+      console.log("store data",res)
+      if(!!res){
+        dispatch({
+          type: types.CREATE_TODOITEMS,
+          payload: res
+        })
+      }
+    })
+},[])
+
   return (
     <Provider store={store}>
 
@@ -20,6 +37,15 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
 
 
 

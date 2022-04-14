@@ -20,9 +20,10 @@ export default styles = StyleSheet.create({
       
   },
     Text1:{
-        fontSize:20,
+        fontSize:17,
         marginTop:10,
         textAlign: "center",
+        marginHorizontal:5
         
         
     },
@@ -35,13 +36,13 @@ export default styles = StyleSheet.create({
       },
       todoListContainer: {
         justifyContent: 'center',
-        borderWidth:2,
+        borderWidth:1,
         borderColor:colors.orange,
         marginHorizontal:25,
         marginVertical:10,
         borderRadius:10,
         shadowColor:colors.orange,
-        shadowOpacity:1
+        shadowOpacity:0.5
         // flex:0.8
       },
       todoList:{

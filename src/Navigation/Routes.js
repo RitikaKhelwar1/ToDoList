@@ -1,16 +1,20 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import {useSelector} from 'react-redux';
-
+import { getData, storeData } from '../utils/utils';
 import AuthStack from './AuthStack';
-
 import MainStack from './MainStack';
+
+
+
+
 const Stack = createNativeStackNavigator();
 
 export default function Routes() {
+
 const userData = useSelector(state => state.Auth);
+  
 console.log(userData)
 
   return (
