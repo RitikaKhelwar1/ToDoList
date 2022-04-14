@@ -39,9 +39,6 @@ const AddTask = (state = initialState, action) => {
             return {
                 ...state,
                 todoItems: mergeData,
-
-                // ...state,
-                // todoItems:storeArr
             }
         }
 
@@ -52,6 +49,9 @@ const AddTask = (state = initialState, action) => {
             if (index >= 0) {
                 newList1.splice(index, 1)
             }
+            storeData(newList1).then((val)=>{
+                console.log("delete store data",val)
+            })
             return {
                 ...state,
                 todoItems: newList1
@@ -62,6 +62,9 @@ const AddTask = (state = initialState, action) => {
             let editUserIndex = state.todoItems.findIndex((index) => index.userId === data.id);
 
             editArr[editUserIndex] = data
+            storeData(editArr).then((val)=>{
+                console.log("update store data",val)
+            })
             return {
                 ...state,
                 todoItems: editArr

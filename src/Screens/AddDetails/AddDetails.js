@@ -41,13 +41,6 @@ function AddDetails({ navigation , route}) {
     }
   }, [items])
 
-  
-  
-
-
-  
-
-
   const handleName = (event) =>{
     setname(event)
   }
@@ -97,8 +90,8 @@ function AddDetails({ navigation , route}) {
   }
   
   const handleAddBtn = () => {
-    
-    storeData([{userId,name,phone,address,age,roll}])
+
+
     if(name.length===0){
       alert("Set User Name")
     }
@@ -115,7 +108,6 @@ function AddDetails({ navigation , route}) {
     else if(address.length!=0){
       dispatch(createToDoItems([{userId,name,phone,address,age,roll}])),
          
-      
       navigation.navigate(navigationStrings.HOME)}
 
      
