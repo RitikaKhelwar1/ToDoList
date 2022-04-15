@@ -4,7 +4,8 @@ import { Provider } from 'react-redux'
 import Routes from './src/Navigation/Routes'
 import store from './src/Redux/store'
 import types from './src/Redux/types'
-import { getData } from './src/utils/utils'
+import { getData, getLogin } from './src/utils/utils'
+
 
 
 const {dispatch} = store
@@ -14,6 +15,12 @@ function App() {
 
 
 useEffect(()=>{
+  getLogin().then((res)=>{
+    dispatch({
+      type: types.LOGIN,
+      payload: res
+    })
+  })
     getData().then((res)=>{
       console.log("store data",res)
       if(!!res){
@@ -23,6 +30,7 @@ useEffect(()=>{
         })
       }
     })
+    
 },[])
 
   return (

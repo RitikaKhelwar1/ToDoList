@@ -14,24 +14,9 @@ const AddTask = (state = initialState, action) => {
  
             console.log("pyalod data", action.payload)
             const data = action.payload;
-            // data=[...state.todoItems]
-            // data.push(item)
             console.log("item+++",action.payload)
-
-            const mapdata = data.map((element,index)=>{
-                return{
-                    userId: element.userId,
-                    name: element.name,
-                    age: element.age,
-                    address: element.address,
-                    phone: element.phone,
-                    roll: element.roll
-                }
-            })
-           
-
             let mergeData = [
-                ...state.todoItems, ...mapdata
+                ...state.todoItems, ...data
             ]
             storeData(mergeData).then((val)=>{
                 console.log("my store data",val)
@@ -69,6 +54,7 @@ const AddTask = (state = initialState, action) => {
                 ...state,
                 todoItems: editArr
             }
+            
 
 
 

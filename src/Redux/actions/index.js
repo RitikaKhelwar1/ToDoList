@@ -1,10 +1,11 @@
 import types from "../types";
 
 
-export const login=()=>{
+export const login=(data)=>{
     return{
 
-        type: types.LOGIN
+        type: types.LOGIN,
+        payload :data
     }
 }
 

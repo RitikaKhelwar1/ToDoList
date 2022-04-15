@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 
 function Login() {
   const dispatch = useDispatch()
+  
 
   const [name, setname] = useState('')
   const [phone, setphone] = useState('')
@@ -27,7 +28,7 @@ function Login() {
   const loging=()=>{
     if(name.length===0){alert("Please Enter User Name")}
     else if(phone.length===0){alert("Please Enter Phone Name")}
-    if(phone.length!=0 && name.length){dispatch(login())}
+    if(phone.length!=0 && name.length){dispatch(login([{name,phone}]))}
   }
 
   return (
