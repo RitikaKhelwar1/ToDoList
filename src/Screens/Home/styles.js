@@ -1,27 +1,28 @@
 import { StyleSheet } from "react-native";
 import colors from "../../Styles/colors";
+import {moderateScale,moderateScaleVertical,textScale} from "../../Styles/responsiveSize"
 
 export default styles = StyleSheet.create({
     PlusBtn:{
-        height:70,
-        width:70,
+        height:moderateScale(70),
+        width:moderateScale(70),
         alignSelf:"flex-end",
-        marginRight:15,
-        marginBottom:10
+        marginRight:moderateScale(15),
+        marginBottom:moderateScale(10)
         
         
     },
     PlusBtn1:{
-      height:40,
-      width:40,
+      height:moderateScale(40),
+      width:moderateScale(40),
       alignSelf:"center",
-      margin:15
+      marginTop:moderateScaleVertical(300)
       
       
   },
     Text1:{
-        fontSize:17,
-        marginTop:10,
+        fontSize:textScale(17),
+        marginTop:moderateScaleVertical(10),
         textAlign: "center",
         marginHorizontal:5
         
@@ -59,11 +60,11 @@ export default styles = StyleSheet.create({
         justifyContent:"center",
       },
       LogOutText:{
-        fontSize:18,
+        fontSize:textScale(18),
         color:colors.orange,
         fontWeight:"bold",
-        marginLeft:10
-       
+        marginLeft:moderateScaleVertical(10),
+        marginVertical : moderateScaleVertical(10)
       }
       
 

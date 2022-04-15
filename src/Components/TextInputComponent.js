@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
        
         marginVertical:10,
         marginLeft:5,
-       flex:0.9
+       flex:1
 
        
     },

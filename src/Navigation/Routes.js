@@ -23,7 +23,7 @@ export default function Routes() {
 
 const userData = useSelector(state => state.Auth.userData);
   
-console.log(userData)
+console.log("userData", userData)
 
   return (
     <NavigationContainer>

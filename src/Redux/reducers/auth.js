@@ -22,10 +22,10 @@ const Auth = (state = initialState, action) => {
 
         case types.USER_LOGOUT : 
         removeLoginData();
-        getLogin().then((res)=>{
-            console.log("alkjhgfds,mnbvcxz",res)
-            return {userData:res}
-        })
+        // getLogin().then((res)=>{
+        //     console.log("alkjhgfds,mnbvcxz",res)
+        //     return {userData:res}
+        // })
         return {userData:undefined}
         
         default : return state;

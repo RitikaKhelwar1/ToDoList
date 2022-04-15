@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native'
 import colors from './colors'
+import {moderateScale,moderateScaleVertical,textScale} from './responsiveSize'
 
 
 export default styles = StyleSheet.create({
@@ -11,18 +12,18 @@ export default styles = StyleSheet.create({
     },
     loginContainer2:{
         flexDirection:"row",
-        marginBottom:20,
+        marginBottom:moderateScaleVertical(20),
         justifyContent:"flex-end"
 
     },
     InputBox:{
         borderColor:"grey",
-        borderWidth:2,
+        borderWidth:moderateScale(2),
         borderRadius:5,
     
     },
     loginText:{
-        fontSize:20,
+        fontSize:textScale(20),
         fontWeight:"bold",
         color :colors.DarkBlue,
         textAlign:"center"
